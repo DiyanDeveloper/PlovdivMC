@@ -25,7 +25,7 @@ Provides server info, online status, gameplay sections, and Discord integration.
 
 Visit the live demo (replace with your Netlify URL):
 
-**https://your-app.netlify.app**
+**https://plovdivmc.netlify.app**
 
 ---
 

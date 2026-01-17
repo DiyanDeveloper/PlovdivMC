@@ -7,54 +7,83 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header id="top">
-    <nav>
-      <div class="logo">Plovdiv MC</div>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#rules">Rules</a></li>
-        <li><a href="#connect">Connect</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button id="darkModeToggle">🌙</button>
-    </nav>
-    <section class="hero">
-      <h1>Welcome to Plovdiv Minecraft Server</h1>
-      <p>Join our friendly community and enjoy custom gameplay!</p>
-      <a href="#connect" class="btn">Connect Now</a>
-    </section>
-  </header>
 
-  <section id="about">
-    <h2>About Plovdiv MC</h2>
-    <p>Plovdiv MC is a community-focused server with minigames, survival, and custom mods. Everyone is welcome!</p>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Plovdiv MC</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a href="#connect">Connect</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="darkModeToggle">🌙</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Plovdiv MC</h1>
+    <p>Join our friendly community and enjoy custom gameplay!</p>
+    <a href="#connect" class="btn">Connect Now</a>
   </section>
 
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Plovdiv MC</h2>
+    <p>Plovdiv MC is a community-focused Minecraft server with survival, minigames, and fun events. Everyone is welcome!</p>
+  </section>
+
+  <!-- Rules Section -->
   <section id="rules">
     <h2>Server Rules</h2>
     <ul>
       <li>No griefing or stealing.</li>
       <li>Be respectful to other players.</li>
-      <li>No hacking or exploits.</li>
+      <li>No hacking or exploiting bugs.</li>
+      <li>Keep chat friendly and safe.</li>
     </ul>
   </section>
 
+  <!-- Connect Section -->
   <section id="connect">
     <h2>Connect</h2>
-    <p>Server IP: <strong>play.plovdivmc.com</strong></p>
+    <p>Server IP: <strong>letschill.aternos.me</strong></p>
     <p>Status: <span id="serverStatus">Checking...</span></p>
-    <a href="/install.html" class="btn">Add to Discord</a>
+    <a href="/install.html" class="btn">Add Bot to Discord</a>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Join our Discord for updates: <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank">Discord</a></p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2026 Plovdiv MC. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Minecraft server status (using mcsrvstat API)
+    const serverStatus = document.getElementById('serverStatus');
+    fetch('https://api.mcsrvstat.us/2/letschill.aternos.me')
+      .then(res => res.json())
+      .then(data => {
+        serverStatus.textContent = data.online ? `Online (${data.players.online}/${data.players.max})` : 'Offline';
+        serverStatus.style.color = data.online ? '#00ff00' : '#ff0000';
+      })
+      .catch(() => {
+        serverStatus.textContent = 'Offline';
+        serverStatus.style.color = '#ff0000';
+      });
+  </script>
+
 </body>
 </html>

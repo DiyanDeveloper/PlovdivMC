@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Discord...</title>
+  <script>
+    // Discord bot OAuth2 redirect
+    const clientId = '1462104223687901194'; // Your bot ID
+    const scope = 'bot%20applications.commands'; // Bot + commands
+    const permissions = '8'; // Administrator permissions
+    const url = `https://discord.com/oauth2/authorize?client_id=${clientId}&scope=${scope}&permissions=${permissions}`;
+    
+    // Redirect to Discord
+    window.location.href = url;
+  </script>
+</head>
+<body>
+  <p>Redirecting to Discord... If you are not redirected automatically, <a href="https://discord.com/oauth2/authorize?client_id=1462104223687901194&scope=bot%20applications.commands&permissions=8">click here</a>.</p>
+</body>
+</html>

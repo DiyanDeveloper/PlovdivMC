@@ -3,18 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting to Discord...</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e90ff, #00bfff);
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+    }
+    .spinner {
+      border: 6px solid #fff3;
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 2rem auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    a {
+      color: #ffcc00;
+      text-decoration: underline;
+    }
+  </style>
   <script>
-    // Discord bot OAuth2 redirect
-    const clientId = '1462104223687901194'; // Your bot ID
-    const scope = 'bot%20applications.commands'; // Bot + commands
-    const permissions = '8'; // Administrator permissions
-    const url = `https://discord.com/oauth2/authorize?client_id=${clientId}&scope=${scope}&permissions=${permissions}`;
-    
-    // Redirect to Discord
+    // Redirect to Discord OAuth2 code grant
+    const url = "https://discord.com/oauth2/authorize?client_id=1462104223687901194&permissions=0&response_type=code&redirect_uri=https%3A%2F%2Fplovdivmc.netlify.app%2Finstall.html&integration_type=0&scope=bot";
     window.location.href = url;
   </script>
 </head>
 <body>
-  <p>Redirecting to Discord... If you are not redirected automatically, <a href="https://discord.com/oauth2/authorize?client_id=1462104223687901194&scope=bot%20applications.commands&permissions=8">click here</a>.</p>
+  <h1>Redirecting to Discord...</h1>
+  <div class="spinner"></div>
+  <p>If you are not redirected automatically, <a href="https://discord.com/oauth2/authorize?client_id=1462104223687901194&permissions=0&response_type=code&redirect_uri=https%3A%2F%2Fplovdivmc.netlify.app%2Finstall.html&integration_type=0&scope=bot" target="_blank">click here</a>.</p>
 </body>
 </html>
